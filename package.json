@@ -1,0 +1,12 @@
+{
+    "name": "quiz",
+    "version": "1.0.0",
+    "description": "some-description",
+    "main": "index.js",
+    "respository": "git@github.com/:9werayut/quiz.git",
+    "srcipt": {},
+    "author": "Werayut Kumsuwan",
+    "license": "",
+    "devDependencies": {},
+    "dependencies": {}
+}
