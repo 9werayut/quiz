@@ -11,8 +11,11 @@ import routes from './routers';
 //Reducers import
 import reducers from './reducers/index.js';
 
+// Style import
+import '../styles/index.scss';
+
 // Store definition with Middleware applying and Redenering of React Document Object Model
-const createStoreWithMiddleware = applyMiddleware()(createStore); 
+const createStoreWithMiddleware = applyMiddleware()(createStore);
 
 ReactDOM.render(
     <Provider store={createStoreWithMiddleware(reducers)}>
