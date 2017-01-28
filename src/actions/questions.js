@@ -13,7 +13,8 @@ export function fetchQuestion(){
                 const data = {
                     id: questionObj.id,
                     answer: questionObj.answer,
-                    description: questionObj.question
+                    description: questionObj.question,
+                    category: questionObj.category.title
                 }
                 dispatch({
                     type: FETCH_QUESTION,

@@ -12,29 +12,18 @@ class Main extends Component {
     componentWillMount(){
         this.props.fetchQuestion();
     }
-    showsQuestion(question){
-        return (
-            <h3>{question === null ? 'data processing' : question.answer}</h3>
-        )
-        if(question === null){
-            return <h3>Data processing...</h3>
-        } else {
-            return (
-                <ul>
-                    <li>answer: {question.answer}</li>
-                    <li>id: {question.id}</li>
-                    <li>description: {question.description}</li>
-                </ul>
-            );
-        }
-    }
+
     render() {
-        console.log(this.props.question);
         return(
             <div className="main-page">
                 <ActivityLog />
-                <QuestionInfo/>
-                {this.showsQuestion(this.props.question)}
+                {this.props.question && (
+                    <QuestionInfo
+                        id={this.props.question.id}
+                        description={this.props.question.description}
+                        category={this.props.question.category}
+                    />
+                )}
             </div>
         )
     }
