@@ -1,29 +1,34 @@
 // Node module import
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
 
-import { fetchQuestion } from '../actions/questions';
+import {fetchQuestion} from '../actions/questions';
 
 // Component import
 import ActivityLog from './main/activity-log';
 import QuestionInfo from './main/question-info';
+import Loader from './main/loader';
 
 class Main extends Component {
-    componentWillMount(){
+    componentWillMount() {
         this.props.fetchQuestion();
     }
 
     render() {
-        return(
+        return (
             <div className="main-page">
-                <ActivityLog />
-                {this.props.question && (
-                    <QuestionInfo
-                        id={this.props.question.id}
-                        description={this.props.question.description}
-                        category={this.props.question.category}
-                    />
-                )}
+                {this.props.question ? (
+                        <div>
+                            <ActivityLog />
+                            <QuestionInfo
+                                id={this.props.question.id}
+                                description={this.props.question.description}
+                                category={this.props.question.category}
+                            />
+                        </div>
+                    ) :
+                    <Loader />
+                }
             </div>
         )
     }
@@ -35,4 +40,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, { fetchQuestion })(Main);
+export default connect(mapStateToProps, {fetchQuestion})(Main);
