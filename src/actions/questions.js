@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 // Action types import
-import { FETCH_QUESTION } from '../constants/question';
+import { FETCH_QUESTION, INCREMENT_QUESTIONS_COUNT } from '../constants/question';
 
 //Receives a random question
 export function fetchQuestion(){
@@ -21,5 +21,14 @@ export function fetchQuestion(){
                     payload: data
                 })
             });
+    }
+}
+
+//Increment the question
+export function incrementQuestionCount() {
+    return function (dispatch) {
+        dispatch({
+            type: INCREMENT_QUESTIONS_COUNT
+        })
     }
 }
